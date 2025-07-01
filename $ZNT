@@ -1,0 +1,22 @@
+<button onclick="addZNT()">Add ZNT to MetaMask</button>
+
+<script>
+async function addZNT() {
+  try {
+    await window.ethereum.request({
+      method: 'wallet_watchAsset',
+      params: {
+        type: 'ERC20',
+        options: {
+          address: '0xYourZNTContractAddressHere',
+          symbol: 'ZNT',
+          decimals: 18,
+          image: 'https://yourdomain.com/logo.png' // Optional: Add your token logo
+        },
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+</script>
